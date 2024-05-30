@@ -1,0 +1,23 @@
+
+/* components/header.css */
+
+nav {
+    a {
+        span {
+            color: transparent;
+            letter-spacing: -1em;
+            transition: color 0.25s, letter-spacing 0.25s;
+        }
+
+        &:hover{
+
+            span {
+                color: inherit;
+                letter-spacing: 0;
+            }
+        }
+        svg {
+            height: 1em;
+        }
+    }
+}
