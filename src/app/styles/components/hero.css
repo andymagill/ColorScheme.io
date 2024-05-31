@@ -1,0 +1,20 @@
+
+/* components/hero.css */
+
+.hero {
+    background-size: cover;
+    /* background: radial-gradient(farthest-side at top left, rgba(255, 0, 238, 0.822), transparent ),  */
+        /* radial-gradient(farthest-corner at bottom right, rgba(255, 111, 50, 0.76), transparent 60%), #3eac90; */
+    background-attachment: fixed;
+
+    .wrapper {
+        
+        & > * {
+            text-shadow:
+                0.07em 0 5px rgba(0,0,0,0.5),
+                0 0.07em 5px rgba(0,0,0,0.5),
+                -0.07em 0 5px rgba(0,0,0,0.5),
+                0 -0.07em 5px rgba(0,0,0,0.5);
+        }
+    }
+}
