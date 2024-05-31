@@ -2,10 +2,12 @@
 /* components/header.css */
 
 nav {
+    white-space: nowrap;
+    
     a {
         span {
             color: transparent;
-            letter-spacing: -1em;
+            letter-spacing: -0.75em;
             transition: color 0.25s, letter-spacing 0.25s;
         }
 
@@ -17,7 +19,13 @@ nav {
             }
         }
         svg {
+            display: inline-block;
             height: 1em;
+            vertical-align: -0.125em;
         }
     }
+}
+
+.logo {
+    white-space: nowrap;
 }

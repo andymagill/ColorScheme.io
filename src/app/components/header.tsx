@@ -13,9 +13,20 @@ export default function Header() {
       </div>
 
       <nav>
-        <ul className="flex gap-1">
-          <li><a href="/" className="p-1"><FontAwesomeIcon icon={faHome} /><span>Home</span></a></li>
-          <li><a href="/saved" className="p-1"><FontAwesomeIcon icon={faSave} /><span>Saved Schemes</span></a></li>
+        <ul className="flex gap-2">
+          <li>
+            <a href="/" className="inline-block p-2">
+              <FontAwesomeIcon icon={faHome} className="mr-2 leading-none"/>
+              <span className='inline-block leading-none'>Home</span>
+            </a>
+          </li>
+
+          <li>
+            <a href="/saved" className='inline-block p-2'>
+              <FontAwesomeIcon icon={faSave} className='mr-2 leading-none'/>
+              <span className='inline-block leading-none'>Saved Schemes</span>
+            </a>
+          </li>
         </ul>
       </nav>
     </header>
