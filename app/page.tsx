@@ -12,7 +12,7 @@ const Homepage = () => {
             <p>Select the best color&nbsp;scheme for your next&nbsp;project. Get&nbsp;inspired by an endless collection of user created color&nbsp;schemes. </p>
         </Hero>
 
-        <SchemeList title="Explore Color Schemes" src="saved"/>
+        <SchemeList title="Explore Color Schemes" />
       </main>
 
       <ToolTray />

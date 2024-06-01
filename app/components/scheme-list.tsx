@@ -18,13 +18,22 @@ export default function SchemeList( { title = '', src = '' } :
   return (
     <section className="scheme-list py-8 px-4">
       <div className='wrapper max-w-7xl py-4'>
-          <h2 className='bold text-2xl'>{title}</h2>
+          <h2 className='bold text-2xl mb-8'>{title}</h2>
 
-          {/* { TODO show saved schemes  } */}
-          {/* { TODO show random schemes  } */}
-          <SchemeItem />
-          <SchemeItem />
-          <SchemeItem />
+          <div className='inner flex flex-wrap justify-center gap-4'>
+            <SchemeItem />
+            <SchemeItem />
+            <SchemeItem />
+            <SchemeItem />
+            <SchemeItem />
+            <SchemeItem />
+            <SchemeItem />
+            <SchemeItem />
+            <SchemeItem />
+            <SchemeItem />
+            <SchemeItem />
+            <SchemeItem />
+          </div>
       </div>
     </section>
   );
