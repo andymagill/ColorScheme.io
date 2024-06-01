@@ -1,0 +1,16 @@
+
+/* components/tool-tray.css */
+
+.tool-tray {
+
+    .scheme-item {
+
+        .inner {
+            position: absolute;
+            bottom: 1rem;
+            bottom: 0.25rem;
+            border: 0.75rem solid white;
+            border-radius: 2rem;
+        }
+    }
+}
