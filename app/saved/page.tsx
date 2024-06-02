@@ -3,10 +3,10 @@ import Hero from '../components/hero';
 import SchemeList from '../components/scheme-list'; 
 import ToolTray from '../components/tool-tray'; 
 
-const Homepage = () => {
+const Saved = () => {
   return (
     <>
-      <main className="">
+      <main>
         <Hero>
           <h1>Your Saved Color Schemes </h1>
         </Hero>
@@ -19,4 +19,4 @@ const Homepage = () => {
   );
 };
 
-export default Homepage;
+export default Saved;

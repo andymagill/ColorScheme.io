@@ -1,76 +1,56 @@
 "use client";
 
-import React, { useState } from 'react';
-import SchemeItem from './scheme-item';
+import React, { useState, useRef } from 'react';
+import SchemeItem, { SchemeItemMethods } from './scheme-item';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLock, faUnlock, faExpand } from '@fortawesome/free-solid-svg-icons';
 
 import '../styles/components/tool-tray.css';
 
 const ToolTray = () => {
-  const [baseColor, setBaseColor] = useState('#ffffff');
-  const [colorModel, setColorModel] = useState('analogous');
-  const [generatedColors, setGeneratedColors] = useState([]);
-  const [lockedColors, setLockedColors] = useState([false, false, false, false, false]);
   const [isExpanded, setIsExpanded] = useState(false);
+  const schemeItemRef = useRef<SchemeItemMethods>(null);// Create a ref to the SchemeItem component
 
   const generateRandomScheme = () => {
-    const newColors = generatedColors.map((color, index) => (
-      lockedColors[index] ? color : `#${Math.floor(Math.random() * 16777215).toString(16)}`
-    ));
-    // TODO: set generated colors
-    // setGeneratedColors(newColors);
-  };
-
-  const handleColorChange = (color) => {
-    setBaseColor(color.hex);
-  };
-
-  const handleLockToggle = (index) => {
-    const newLocks = [...lockedColors];
-    newLocks[index] = !newLocks[index];
-    setLockedColors(newLocks);
+    // TODO: Generate a new color scheme
+    console.log('generateRandomScheme');
   };
 
   const saveScheme = () => {
-    // TODO Save color scheme to local storage
-    // const savedSchemes = JSON.parse(localStorage.getItem('savedSchemes')) || [];
-    // savedSchemes.push(generatedColors);
-    // localStorage.setItem('savedSchemes', JSON.stringify(savedSchemes));
+    if (schemeItemRef.current) {
+      const colorsToSave = schemeItemRef.current.getColorArray();
+      // Retrieve the existing saved schemes from local storage
+      const savedSchemes = JSON.parse(localStorage.getItem('savedSchemes') || '[]');
+      // Add the new color scheme to the array of saved schemes
+      savedSchemes.push(colorsToSave);
+      // Save the updated array back to local storage
+      localStorage.setItem('savedSchemes', JSON.stringify(savedSchemes));
+      console.log('Scheme saved:', colorsToSave);
+    } else {
+      console.log('SchemeItem is not mounted yet.');
+    }
   };
-
+  
   const exportScheme = () => {
     // TODO: Implement export functionality here
-
+    console.log('exportScheme');
   };
 
   const generateShareableLink = () => {
     // TODO: Implement shareable link generation here
+    console.log('generateShareableLink');
   };
 
   return (
     <div className={`tool-tray fixed z-20 bottom-0 left-0 right-0 bg-white shadow-lg ${isExpanded ? 'h-64' : 'h-16'}`}>
       <div className="flex items-center justify-between p-4">
 
-        <SchemeItem />
+        {/* Pass the ref to the SchemeItem component */}
+        <SchemeItem ref={schemeItemRef} />
 
         <div>
-          <select
-            className="border rounded p-1"
-            value={colorModel}
-            onChange={(e) => setColorModel(e.target.value)}
-          >
-            <option value="analogous">Analogous</option>
-            <option value="complementary">Complementary</option>
-            <option value="monochromatic">Monochromatic</option>
-            {/* Add more color models as needed */}
-          </select>
-
-          <button
-            className="ml-2 p-2 bg-blue-500 text-white rounded"
-            onClick={generateRandomScheme}
-          >
-            Generate
+          <button className="ml-2 p-2 bg-blue-500 text-white rounded" onClick={generateRandomScheme} >
+            Randomize
           </button>
         </div>
 
