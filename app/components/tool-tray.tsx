@@ -25,7 +25,8 @@ const ToolTray = () => {
       savedSchemes.push(colorsToSave);
       // Save the updated array back to local storage
       localStorage.setItem('savedSchemes', JSON.stringify(savedSchemes));
-      console.log('Scheme saved:', colorsToSave);
+      // throw custom event to tell SchemeList to update Schemes from local storage
+      window.dispatchEvent(new Event('schemesChanged'));
     } else {
       console.log('SchemeItem is not mounted yet.');
     }
@@ -42,7 +43,7 @@ const ToolTray = () => {
   };
 
   return (
-    <div className={`tool-tray fixed z-20 bottom-0 left-0 right-0 bg-white shadow-lg ${isExpanded ? 'h-64' : 'h-16'}`}>
+    <div className={`tool-tray fixed z-20 bottom-0 left-0 right-0 bg-white shadow-lg transition-[height] ${isExpanded ? 'h-64' : 'h-16'}`}>
       <div className="flex items-center justify-between p-4">
 
         {/* Pass the ref to the SchemeItem component */}

@@ -9,13 +9,27 @@ export default function SchemeList({ title = '', src = '' }: { title?: string; s
   const [schemes, setSchemes] = useState<string[][]>([]);
 
   useEffect(() => {
-    if (src === 'saved') {
-      // Fetch saved schemes from local storage
+
+    // Fetch saved schemes from local storage
+    const loadSavedSchemes = () => {
+      console.log('loadSavedSchemes');
       const loadedSchemes = JSON.parse(localStorage.getItem('savedSchemes') || '[]');
       setSchemes(loadedSchemes);
+    };
+
+    if (src === 'saved') {
+
+      loadSavedSchemes();
+      
+      // Listen for the custom event 
+      window.addEventListener('schemesChanged', loadSavedSchemes);
+      return () => { //clean up
+        window.removeEventListener('schemesChanged', loadSavedSchemes);
+      };
+
     } else {
       // Generate random colors if src is blank
-      const randomSchemes = Array.from({ length: 5 }, () => randomColor({ count: 5 }));
+      const randomSchemes = Array.from({ length: 12 }, () => randomColor({ count: 5 }));
       setSchemes(randomSchemes);
     }
   }, [src]);
@@ -27,7 +41,7 @@ export default function SchemeList({ title = '', src = '' }: { title?: string; s
 
         <div className='inner flex flex-wrap justify-center gap-4'>
           {schemes.map((colors, index) => (
-            <SchemeItem key={index} colors={colors} />
+            <SchemeItem key={index} id={index} colors={colors} />
           ))}
         </div>
       </div>
