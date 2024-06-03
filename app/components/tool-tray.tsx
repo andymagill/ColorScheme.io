@@ -2,11 +2,11 @@
 
 import React, { useState, useRef } from 'react';
 import SchemeItem, { SchemeItemMethods } from './scheme-item';
-import ColorPicker from './color-picker';
+import ColorSelector from './color-selector';
 import HueGenerateButton from './hue-generate-button';
 import SaveSchemeButton from './save-scheme-button'; 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faLock, faUnlock, faExpand } from '@fortawesome/free-solid-svg-icons';
+import { faExpand } from '@fortawesome/free-solid-svg-icons';
 import randomColor from 'randomcolor';
 
 import '../styles/components/tool-tray.css';
@@ -59,27 +59,27 @@ const ToolTray = () => {
           onSchemeGenerated={handleSchemeGenerated}
         />
         
-        {/* ColorPicker component with onChange handler */}
-        <ColorPicker initialColor={colorPickerValue} onChange={setColorPickerValue} />
+        {/* ColorSelector component with onChange handler */}
+        <ColorSelector initialColor={colorPickerValue} onChange={setColorPickerValue} />
 
         <div>
-          <button className="ml-2 p-2 bg-blue-500 text-white rounded" onClick={generateRandomScheme} >
+          <button className="ml-2 px-2 py-1 bg-blue-500 text-white rounded" onClick={generateRandomScheme} >
             Randomize
           </button>
         </div>
 
         <div>
-          <button className="ml-2 p-2 bg-yellow-500 text-white rounded" onClick={exportScheme}>
+          <button className="ml-2 px-2 py-1 bg-yellow-500 text-white rounded" onClick={exportScheme}>
             Export
           </button>
-          <button className="ml-2 p-2 bg-purple-500 text-white rounded" onClick={generateShareableLink}>
+          <button className="ml-2 px-2 py-1 bg-purple-500 text-white rounded" onClick={generateShareableLink}>
             Share
           </button>
 
           <SaveSchemeButton schemeItemRef={schemeItemRef} />
 
           <button
-            className="ml-2 p-2 bg-gray-500 text-white rounded sm:hidden"
+            className="ml-2 px-2 py-1 bg-gray-500 text-white rounded sm:hidden"
             onClick={() => setIsExpanded(!isExpanded)}
           >
             <FontAwesomeIcon icon={faExpand} />

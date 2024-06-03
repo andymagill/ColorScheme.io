@@ -23,7 +23,7 @@ const HueGenerateButton: React.FC<HueGenerateButtonProps> = ({
 
   return (
     <button
-      className="p-2 bg-gray-500 text-white rounded"
+      className="px-2 mx-2 py-1 bg-gray-500 text-white rounded"
       onClick={generateScheme}
     >
       <FontAwesomeIcon icon={faArrowLeft} />
