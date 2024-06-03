@@ -40,7 +40,7 @@ const SchemeItem = forwardRef(({ id, colors }: SchemeItemProps, ref) => {
   }, [id, colors]);
 
   return (
-    <section className="scheme-item w-48">
+    <section className="scheme-item relative w-48">
       <div className='inner pt-4 px-4 pb-8'>
         {
           colorArray.map((color, index) => (

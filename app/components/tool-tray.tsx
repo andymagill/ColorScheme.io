@@ -2,6 +2,7 @@
 
 import React, { useState, useRef } from 'react';
 import SchemeItem, { SchemeItemMethods } from './scheme-item';
+import ColorPicker from './color-picker';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLock, faUnlock, faExpand } from '@fortawesome/free-solid-svg-icons';
 
@@ -43,11 +44,14 @@ const ToolTray = () => {
   };
 
   return (
-    <div className={`tool-tray fixed z-20 bottom-0 left-0 right-0 bg-white shadow-lg transition-[height] ${isExpanded ? 'h-64' : 'h-16'}`}>
-      <div className="flex items-center justify-between p-4">
+    <div className={`tool-tray fixed z-20 bottom-0 left-0 right-0 bg-white shadow-lg transition-[height]
+      ${ isExpanded ? 'expanded h-64' : 'h-16' }`} >
+      <div className="flex items-end justify-between max-h-full p-4 ">
 
         {/* Pass the ref to the SchemeItem component */}
         <SchemeItem ref={schemeItemRef} />
+
+        <ColorPicker initialColor="#ff0000" />
 
         <div>
           <button className="ml-2 p-2 bg-blue-500 text-white rounded" onClick={generateRandomScheme} >
@@ -66,7 +70,7 @@ const ToolTray = () => {
             Share
           </button>
           <button
-            className="ml-2 p-2 bg-gray-500 text-white rounded lg:hidden"
+            className="ml-2 p-2 bg-gray-500 text-white rounded sm:hidden"
             onClick={() => setIsExpanded(!isExpanded)}
           >
             <FontAwesomeIcon icon={faExpand} />
