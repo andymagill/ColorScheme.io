@@ -13,15 +13,17 @@ interface SchemeItemProps {
   colors?: string[]; // Make colors optional
 }
 export interface SchemeItemMethods {
+  setColorArray: (colors: string[]) => void;
   getColorArray: () => string[];
 }
 
-// Use forwardRef and define the component with the props type
+// define the component with props types
 const SchemeItem = forwardRef(({ id, colors }: SchemeItemProps, ref) => {
   const [colorArray, setColorArray] = useState<string[]>(colors || []);
 
-  // Expose the colorArray to the parent component
+  // expose methods to the parent component
   useImperativeHandle(ref, () => ({
+    setColorArray,
     getColorArray: () => colorArray,
   }));
 

@@ -3,18 +3,34 @@
 import React, { useState, useRef } from 'react';
 import SchemeItem, { SchemeItemMethods } from './scheme-item';
 import ColorPicker from './color-picker';
+import HueGenerateButton from './hue-generate-button';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLock, faUnlock, faExpand } from '@fortawesome/free-solid-svg-icons';
-
+import randomColor from 'randomcolor';
 import '../styles/components/tool-tray.css';
+
 
 const ToolTray = () => {
   const [isExpanded, setIsExpanded] = useState(false);
+  const [colorPickerValue, setColorPickerValue] = useState('#ff0000'); // Define the colorPickerValue state
   const schemeItemRef = useRef<SchemeItemMethods>(null);// Create a ref to the SchemeItem component
+  
+
+  // Define the handleSchemeGenerated function
+  const handleSchemeGenerated = (colors: string[]) => {
+    if (schemeItemRef.current) {
+      schemeItemRef.current.setColorArray(colors);
+    }
+  };
 
   const generateRandomScheme = () => {
-    // TODO: Generate a new color scheme
     console.log('generateRandomScheme');
+    // Generate a new color scheme using randomColor
+    const newScheme = randomColor({
+      count: 5,
+      hue: colorPickerValue // Use the color picker's value as the hue
+    });
+    handleSchemeGenerated(newScheme);
   };
 
   const saveScheme = () => {
@@ -48,10 +64,17 @@ const ToolTray = () => {
       ${ isExpanded ? 'expanded h-64' : 'h-16' }`} >
       <div className="flex items-end justify-between max-h-full p-4 ">
 
-        {/* Pass the ref to the SchemeItem component */}
+        {/* SchemeItem component */}
         <SchemeItem ref={schemeItemRef} />
 
-        <ColorPicker initialColor="#ff0000" />
+        {/* HueGenerateButton component */}
+        <HueGenerateButton 
+          colorPickerValue={colorPickerValue}
+          onSchemeGenerated={handleSchemeGenerated}
+        />
+        
+        {/* ColorPicker component with onChange handler */}
+        <ColorPicker initialColor={colorPickerValue} onChange={setColorPickerValue} />
 
         <div>
           <button className="ml-2 p-2 bg-blue-500 text-white rounded" onClick={generateRandomScheme} >
