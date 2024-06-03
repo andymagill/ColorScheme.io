@@ -45,10 +45,10 @@ const ColorSelector: React.FC<ColorSelectorProps> = ({ initialColor = '#ffffff',
 
   // toggle browser color picker
   const handleColorSelectorClick = () => {
-    if (colorInputRef.current && textInputRef.current) {
+    if (colorInputRef.current && colorSelectorButtonRef.current) {
       if (isColorPickerOpen) {
         // If the color picker is open, focus the text input and close the color picker
-        textInputRef.current.focus();
+        colorSelectorButtonRef.current.focus();
         setIsColorPickerOpen(false);
       } else {
         // If the color picker is not open, open it

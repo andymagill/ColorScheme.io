@@ -29,9 +29,9 @@ const SaveSchemeButton: React.FC<SaveSchemeButtonProps> = ({ schemeItemRef }) =>
   };
 
   return (
-    <button className="ml-2 p-2 bg-green-500 text-white rounded" onClick={saveScheme}>
+    <button className="ml-2 px-2 py-1 bg-green-500 text-white rounded" onClick={saveScheme}>
       <FontAwesomeIcon icon={faSave} />
-      <span>Save</span>
+      <span className='ml-2'>Save</span>
     </button>
   );
 };

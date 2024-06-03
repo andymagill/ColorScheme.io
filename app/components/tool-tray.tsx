@@ -14,7 +14,7 @@ import '../styles/components/tool-tray.css';
 
 const ToolTray = () => {
   const [isExpanded, setIsExpanded] = useState(false);
-  const [colorPickerValue, setColorPickerValue] = useState('#ff0000'); // Define the colorPickerValue state
+  const [colorPickerValue, setColorPickerValue] = useState('#ffffff'); // Define the colorPickerValue state
   const schemeItemRef = useRef<SchemeItemMethods>(null);// Create a ref to the SchemeItem component
   
 

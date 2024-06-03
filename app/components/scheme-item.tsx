@@ -2,10 +2,8 @@
 
 import React, { useState, useEffect, forwardRef, useImperativeHandle } from 'react';
 import randomColor from 'randomcolor'; // Import randomColor for generating colors
-import { Oswald } from "next/font/google";
+import SchemeRectGraphic from './scheme-rect-graphic'; // import rectangle graphic
 import '../styles/components/scheme-item.css';
-
-const oswald = Oswald({ subsets: ["latin"] });
 
 // Define the props type for TypeScript
 interface SchemeItemProps {
@@ -43,15 +41,7 @@ const SchemeItem = forwardRef(({ id, colors }: SchemeItemProps, ref) => {
 
   return (
     <section className="scheme-item relative w-48">
-      <div className='inner pt-4 px-4 pb-8'>
-        {
-          colorArray.map((color, index) => (
-            <div className='swatch flex items-end justify-center p-2' key={index} style={{ backgroundColor: color }}>
-              <span className={`${oswald.className} inline-block font-bold text-xs text-center`}>{color}</span>
-            </div>
-          ))
-        }
-      </div>
+      <SchemeRectGraphic colors={colorArray} />
     </section>
   );
 });
