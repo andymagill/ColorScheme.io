@@ -21,6 +21,9 @@ ColorScheme.IO is a web application built with Next.js and React that allows use
 3. Start the development server: `npm run dev` or `yarn dev`
 4. Open [http://localhost:3000](http://localhost:3000) in your browser
 
+## Contributing
+Contributions are welcome! Please follow the guidelines in the [CONTRIBUTING.md](CONTRIBUTING.md) file.
+
 ## License
 License: Creative Commons Attribution 3.0 CC  
 License URI: https://creativecommons.org/licenses/by/3.0/
