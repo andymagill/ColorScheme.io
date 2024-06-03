@@ -4,9 +4,11 @@ import React, { useState, useRef } from 'react';
 import SchemeItem, { SchemeItemMethods } from './scheme-item';
 import ColorPicker from './color-picker';
 import HueGenerateButton from './hue-generate-button';
+import SaveSchemeButton from './save-scheme-button'; 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLock, faUnlock, faExpand } from '@fortawesome/free-solid-svg-icons';
 import randomColor from 'randomcolor';
+
 import '../styles/components/tool-tray.css';
 
 
@@ -31,22 +33,6 @@ const ToolTray = () => {
       hue: colorPickerValue // Use the color picker's value as the hue
     });
     handleSchemeGenerated(newScheme);
-  };
-
-  const saveScheme = () => {
-    if (schemeItemRef.current) {
-      const colorsToSave = schemeItemRef.current.getColorArray();
-      // Retrieve the existing saved schemes from local storage
-      const savedSchemes = JSON.parse(localStorage.getItem('savedSchemes') || '[]');
-      // Add the new color scheme to the array of saved schemes
-      savedSchemes.push(colorsToSave);
-      // Save the updated array back to local storage
-      localStorage.setItem('savedSchemes', JSON.stringify(savedSchemes));
-      // throw custom event to tell SchemeList to update Schemes from local storage
-      window.dispatchEvent(new Event('schemesChanged'));
-    } else {
-      console.log('SchemeItem is not mounted yet.');
-    }
   };
   
   const exportScheme = () => {
@@ -83,15 +69,15 @@ const ToolTray = () => {
         </div>
 
         <div>
-          <button className="p-2 bg-green-500 text-white rounded" onClick={saveScheme}>
-            Save
-          </button>
           <button className="ml-2 p-2 bg-yellow-500 text-white rounded" onClick={exportScheme}>
             Export
           </button>
           <button className="ml-2 p-2 bg-purple-500 text-white rounded" onClick={generateShareableLink}>
             Share
           </button>
+
+          <SaveSchemeButton schemeItemRef={schemeItemRef} />
+
           <button
             className="ml-2 p-2 bg-gray-500 text-white rounded sm:hidden"
             onClick={() => setIsExpanded(!isExpanded)}
