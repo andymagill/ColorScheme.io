@@ -7,7 +7,7 @@ nav {
     a {
         span {
             color: transparent;
-            letter-spacing: -0.75em;
+            /* letter-spacing: -0.75em; */
             transition: color 0.25s, letter-spacing 0.25s;
         }
 
