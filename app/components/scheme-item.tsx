@@ -6,7 +6,7 @@ import SchemeRectGraphic from './scheme-rect-graphic'; // import rectangle graph
 import '../styles/components/scheme-item.css';
 
 // Define the props type for TypeScript
-interface SchemeItemProps {
+export interface SchemeItemProps {
   id?: number;
   colors?: string[]; // Make colors optional
 }
