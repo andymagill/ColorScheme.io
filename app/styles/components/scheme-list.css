@@ -1,2 +1,25 @@
 
 /* /components/scheme-list.css */
+
+.scheme-list {
+    .flex {
+        --cols: 3;
+        --gap: 1em;
+        display: flex;
+        gap: var(--gap);
+        
+        & > * {
+            flex-basis: calc(100% / var(--cols) - var(--gap) / var(--cols) * (var(--cols) - 1));
+        }
+    }
+    @media screen(md) {
+        .flex{
+          --cols:4;
+        }
+    }
+    @media screen(lg) {
+        .flex{
+          --cols: 6;
+        }
+    }
+}

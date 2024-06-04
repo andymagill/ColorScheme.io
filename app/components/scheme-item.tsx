@@ -40,7 +40,7 @@ const SchemeItem = forwardRef(({ id, colors }: SchemeItemProps, ref) => {
   }, [id, colors]);
 
   return (
-    <section className="scheme-item relative w-48">
+    <section className="scheme-item relative">
       <SchemeRectGraphic colors={colorArray} />
     </section>
   );

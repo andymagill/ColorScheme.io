@@ -39,7 +39,7 @@ export default function SchemeList({ title = '', src = '' }: { title?: string; s
       <div className='wrapper max-w-7xl py-4'>
         <h2 className='bold text-2xl mb-8'>{title}</h2>
 
-        <div className='inner flex flex-wrap justify-center gap-4'>
+        <div className='inner flex flex-wrap justify-center'>
           {schemes.map((colors, index) => (
             <SchemeItem key={index} id={index} colors={colors} />
           ))}
