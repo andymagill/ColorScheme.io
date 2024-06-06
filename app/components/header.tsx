@@ -13,7 +13,7 @@ export default function Header() {
 
   return (
     <header className="bg-transparent absolute w-full text-white">
-      <div className='wrapper flex items-center justify-between max-w-7xl p-4'>
+      <div className='wrapper flex items-center justify-between max-w-7xl p-4 sm:px-8 '>
         <div className="logo">
           {/* TODO: create logo component */}
           ColorScheme.IO

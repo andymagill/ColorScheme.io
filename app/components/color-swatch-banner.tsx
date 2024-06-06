@@ -33,9 +33,10 @@ const ColorSwatchBanner = () => {
     return (
       <div
         key={index}
-        className="inline-block w-[10vh] h-[10vh] outline-4 outline-transparent"
+        className="inline-block w-[10vh] h-[10vh] outline outline-4 outline-transparent"
         style={{
           backgroundColor: `hsl(${hue}, 98%, 48%)`,
+          transition: 'outline-color 0.25s',
         }}
         onMouseEnter={(e) => {
           e.currentTarget.style.outlineColor = `hsl(${invert}, 98%, 48%)`;

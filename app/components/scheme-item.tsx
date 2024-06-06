@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useEffect, forwardRef, useImperativeHandle } from 'react';
-import randomColor from 'randomcolor'; // Import randomColor for generating colors
+import { generateRandomCclor } from '../utils/generate-random-color';
 import SchemeRectGraphic from './scheme-rect-graphic'; // import rectangle graphic
 import '../styles/components/scheme-item.css';
 
@@ -32,9 +32,7 @@ const SchemeItem = forwardRef(({ id, colors }: SchemeItemProps, ref) => {
       // TODO: Fetch scheme by ID and update state
     } else {
       // Generate random colors if no colors or ID are provided
-      const newColors = randomColor({
-        count: 5
-      });
+      const newColors = Array.from({ length: 5 }, generateRandomColor);
       setColorArray(newColors);
     }
   }, [id, colors]);

@@ -9,9 +9,8 @@ export default function Hero( { heroImage = '', children = null } :
         { background: 'radial-gradient(farthest-side at top left, rgba(255, 0, 238, 0.822), transparent ), radial-gradient(farthest-corner at bottom right, rgba(255, 111, 50, 0.76), transparent 60%), #7ffddd' }; 
 
     return (
-      <div className="hero py-8 px-4 bg-cover bg-center" style={style} >
+      <div className="hero pt-24 pb-16 px-4 sm:px-8 bg-cover bg-center" style={style} >
         <div className='wrapper sm:w-2/3 text-white'>
-            <div className='header-placeholder h-16 w-full'></div>
             {children}
         </div>
       </div>
