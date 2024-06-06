@@ -11,6 +11,7 @@ export default function Hero( { heroImage = '', children = null } :
     return (
       <div className="hero py-8 px-4 bg-cover bg-center" style={style} >
         <div className='wrapper sm:w-2/3 text-white'>
+            <div className='header-placeholder h-16 w-full'></div>
             {children}
         </div>
       </div>

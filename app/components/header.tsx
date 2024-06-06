@@ -12,7 +12,7 @@ export default function Header() {
   ];
 
   return (
-    <header className="bg-gray-700 text-white">
+    <header className="bg-transparent absolute w-full text-white">
       <div className='wrapper flex items-center justify-between max-w-7xl p-4'>
         <div className="logo">
           {/* TODO: create logo component */}
